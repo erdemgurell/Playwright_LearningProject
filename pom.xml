@@ -8,7 +8,10 @@
     <version>0.1-SNAPSHOT</version>
     <name>Playwright Client Examples</name>
     <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <suiteXmlFiles>testng.xml</suiteXmlFiles>
     </properties>
     <dependencies>
         <dependency>
@@ -30,6 +33,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -37,6 +47,7 @@
             <version>1.7.30</version>
             <scope>test</scope>
         </dependency>
+
 
 
     </dependencies>
@@ -50,6 +61,14 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
